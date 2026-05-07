@@ -1,10 +1,27 @@
 resource "aws_instance" "app" {
-  ami                    = "ami-0d682f26195e9ec0f"
-  instance_type          = "t3.micro"
-  subnet_id              = var.subnet_id
+  count = var.instance_count
+
+  ami           = var.ami
+  instance_type = var.instance_type
+
+  subnet_id = element(
+    var.subnet_ids,
+    count.index
+  )
+
   associate_public_ip_address = true
 
-  tags = {
-    Name = "AppServer"
-  }
+  vpc_security_group_ids = [
+    var.security_group_id
+  ]
+
+  tags = merge(
+    var.common_tags,
+    {
+      Name = format(
+        "AppServer-%d",
+        count.index + 1
+      )
+    }
+  )
 }

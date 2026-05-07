@@ -1,20 +1,5 @@
-# Terraform files
 .terraform/
 *.tfstate
-*.tfstate.*
-crash.log
-
-# Sensitive variables
-*.tfvars
-*.tfvars.json
-
-# Terraform lock file
-.terraform.lock.hcl
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
+*.tfstate.backup
+terraform.tfvars
+.crash.log

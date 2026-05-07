@@ -1,3 +1,10 @@
 resource "aws_s3_bucket" "storage" {
-  bucket = "my-iac-storage-bucket"
+  bucket = "your-unique-iac-storage-bucket"
+
+  tags = merge(
+    var.common_tags,
+    {
+      Name = "iac-storage"
+    }
+  )
 }

@@ -1,24 +1,58 @@
-# IaC Project using Terraform
+# Terraform IaC Project
 
 ## Overview
-This project deploys cloud infrastructure using Terraform:
-- VPC, Subnets
-- EC2 Instance
-- S3 Storage
+This project provisions AWS infrastructure using Terraform.
+
+## Resources Created
+- VPC
+- Public Subnets
+- Internet Gateway
+- EC2 Instances
+- S3 Bucket
 - RDS Database
-- Remote backend
-- Policy enforcement (OPA)
 
-## Steps to Run
+## Features
+- Modular Terraform Architecture
+- Dynamic Resource Creation
+- Remote State Management
+- Terraform Functions
+- Policy-as-Code using OPA
+- Resource Summary Outputs
 
-1. Initialize
-   terraform init
+## Workflow
 
-2. Plan
-   terraform plan
+Developer
+   ↓
+Terraform Init
+   ↓
+Terraform Plan
+   ↓
+OPA Policy Validation
+   ↓
+Terraform Apply
+   ↓
+AWS Resource Creation
+   ↓
+State Stored in S3
+   ↓
+Locking with DynamoDB
 
-3. Apply
-   terraform apply
+## Commands
+
+### Initialize
+terraform init
+
+### Validate
+terraform validate
+
+### Plan
+terraform plan
+
+### Apply
+terraform apply
+
+### Destroy
+terraform destroy
 
 ## Architecture
 User → EC2 → Database → Storage
