@@ -8,8 +8,15 @@ variable "vpc_name" {
 
 variable "public_subnets" {
   default = [
-    "subnet1",
-    "subnet2"
+    "public-subnet-1",
+    "public-subnet-2"
+  ]
+}
+
+variable "private_subnets" {
+  default = [
+    "private-subnet-1",
+    "private-subnet-2"
   ]
 }
 

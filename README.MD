@@ -195,8 +195,40 @@ The project includes Open Policy Agent (OPA) policies to enforce infrastructure 
 | 80 | HTTP |
 
 ---
-
-# 🚀 Deployment Workflow
+## Overall Network Architecture
+VPC (10.0.0.0/16)
+│
+├── Public Subnet 1 (10.0.0.0/24 → ap-south-1a)
+│      ├── EC2 Web Server 1
+│      └── NAT Gateway
+│
+├── Public Subnet 2 (10.0.1.0/24 → ap-south-1b)
+│      └── EC2 Web Server 2
+│
+├── Private Subnet 1 (10.0.10.0/24 → ap-south-1a)
+│      └── Internal Backend Resources
+│
+├── Private Subnet 2 (10.0.11.0/24 → ap-south-1b)
+│      └── RDS MySQL Database
+│
+├── Internet Gateway
+│
+├── Public Route Table
+│      └── 0.0.0.0/0 → Internet Gateway
+│
+├── Private Route Table
+│      └── 0.0.0.0/0 → NAT Gateway
+│
+├── Security Group
+│      ├── SSH  (Port 22)
+│      └── HTTP (Port 80)
+│
+├── S3 Bucket
+│      └── Application Storage / Terraform State
+│
+└── DynamoDB Table
+       └── Terraform State Locking
+# 🚀 Deployment Workflow 
 
 ```text
 Developer

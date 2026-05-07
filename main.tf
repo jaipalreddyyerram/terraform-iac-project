@@ -23,5 +23,7 @@ module "storage" {
 module "database" {
   source = "./modules/database"
 
+  private_subnet_ids = module.network.private_subnet_ids
+
   common_tags = local.common_tags
 }
