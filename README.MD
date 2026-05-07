@@ -340,21 +340,6 @@ terraform destroy
 
 ---
 
-# 📸 Screenshots
-
-Add screenshots here:
-
-```text
-screenshots/
-├── terraform-apply.png
-├── ec2-dashboard.png
-├── vpc-dashboard.png
-├── s3-bucket.png
-└── rds-database.png
-```
-
----
-
 # 📈 Future Improvements
 
 - Load Balancer
